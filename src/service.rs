@@ -3,7 +3,7 @@ use crate::domain::{hotel::Hotel, input::Input, quote::Quote};
 pub fn cheapest_hotel(hotels: &[Hotel], input_data: Input) -> String {
     let mut quotes = hotels
         .iter()
-        .map(|hotel| hotel.quote(input_data.customer_type.clone(), input_data.dates.clone()))
+        .map(|hotel| hotel.quote(input_data.customer_type, input_data.dates.clone()))
         .collect::<Vec<Quote>>();
     quotes.sort();
     quotes.first().unwrap().name.clone()
