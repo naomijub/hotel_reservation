@@ -1,14 +1,17 @@
 use std::ops::RangeInclusive;
 
 use chrono::{Datelike, NaiveDate, Weekday};
+use serde::{Deserialize, Serialize};
 
 use super::{input::CustomerType, quote::Quote};
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 struct Rates {
     weekday: u32,
     weekend: u32,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Hotel {
     name: String,
     rating: u8,
